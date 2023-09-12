@@ -1,0 +1,114 @@
+---
+title: "k-NN Case Study"
+author: "Gustavo Oliveira Gois"
+date: "`r Sys.Date()`"
+output: 
+  # html_document:
+    rmdformats::downcute:
+      self_contained: true
+      thumbnails: true
+      lightbox: true
+      gallery: false
+      highlight: tango
+    #toc: true 
+    #toc_depth: 5 # especifica o número total de títulos do texto
+    #toc_float: true # o menu vai ficar flutuando com o texto 
+    #collapse: true # para extender ou não o menu de títulos 
+    #numer_sections: true # adicionar numero às seções?
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+use_python("C:/Python311/python.exe")
+```
+
+# k-NN Case Study {.tabset}
+
+## Introdução
+
+Revisar os conceitos k-NN e deixar claro os objetivos deste estudo.
+
+
+
+## Case Study
+
+- Criar um KNN para regressão...
+
+### Base de Dados
+Base de dados:
+
+```{python}
+import sys
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+```
+
+abrindo a base de dados
+
+
+
+Importanto os dados de um arquivo que está armazenado no google drive em um data frame
+
+```{python}
+url = "https://drive.google.com/file/d/1L0a-I9AOpBCL_F8gJwhVM-lBVnWQgfpF/view?usp=sharing"
+url2 ='https://drive.google.com/uc?id=' + url.split('/')[-2]
+dados = pd.read_csv(url2)
+
+ds_house = pd.read_csv("..\Data\data_house.csv")
+ds_house.drop(columns=["date"], inplace=True)
+ds_house.head()
+```
+
+|atributo|descrição|
+|atributo|descrição|
+|atributo|descrição|
+|atributo|descrição|
+|atributo|descrição|
+
+
+
+### Condução do Experimento
+
+Primeiro vamos importar as bibliotecas necessárias para trabalhar com data frames e dados importados do google
+
+
+```{python}
+
+```
+
+
+Aplicando holdout - split dos dados em treino e teste, para fazer o KNN retiramos a coluna de price...
+
+
+```{python}
+X_credit =  ds_house.iloc[:,0:3]
+Y_credit = ds_house.iloc[:,4]
+
+X_train, X_test, y_train, y_test = train_test_split(X_credit, Y_credit, train_size=0.7, test_size=0.3, random_state=0)
+
+print(len(X_train), len(y_train))
+print(len(X_test), len(y_test))
+
+```
+
+Antes de começar o treinamento normalizar...
+
+Fase de treinamento (falar que vou fazer o KNN)...
+
+```{python}
+house_price_knn_model = KNeighborsRegressor(n_neighbors=3)
+```
+
+Fase de testes...
+
+```{python}
+house_price_knn_model.fit(X_train, y_train)
+```
+
+
+
+## Conclusão
