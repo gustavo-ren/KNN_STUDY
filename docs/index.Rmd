@@ -33,7 +33,7 @@ Revisar os conceitos k-NN e deixar claro os objetivos deste estudo.
 
 ## Case Study
 
-- Criar um KNN para regressão...
+- Criar um KNN para regressão de preço de casas...
 
 ### Base de Dados
 Base de dados:
@@ -54,9 +54,9 @@ abrindo a base de dados
 Importanto os dados de um arquivo que está armazenado no google drive em um data frame
 
 ```{python}
-url = "https://drive.google.com/file/d/1L0a-I9AOpBCL_F8gJwhVM-lBVnWQgfpF/view?usp=sharing"
-url2 ='https://drive.google.com/uc?id=' + url.split('/')[-2]
-dados = pd.read_csv(url2)
+# url = "https://drive.google.com/file/d/1L0a-I9AOpBCL_F8gJwhVM-lBVnWQgfpF/view?usp=sharing"
+# url2 ='https://drive.google.com/uc?id=' + url.split('/')[-2]
+# dados = pd.read_csv(url2)
 
 ds_house = pd.read_csv("..\Data\data_house.csv")
 ds_house.drop(columns=["date"], inplace=True)

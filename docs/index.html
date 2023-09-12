@@ -1850,7 +1850,7 @@ estudo.</p>
 <div id="case-study" class="section level2">
 <h2>Case Study</h2>
 <ul>
-<li>Criar um KNN para regressão…</li>
+<li>Criar um KNN para regressão de preço de casas…</li>
 </ul>
 <div id="base-de-dados" class="section level3">
 <h3>Base de Dados</h3>
@@ -1864,9 +1864,9 @@ from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor</code></
 <p>abrindo a base de dados</p>
 <p>Importanto os dados de um arquivo que está armazenado no google drive
 em um data frame</p>
-<pre class="python"><code>url = &quot;https://drive.google.com/file/d/1L0a-I9AOpBCL_F8gJwhVM-lBVnWQgfpF/view?usp=sharing&quot;
-url2 =&#39;https://drive.google.com/uc?id=&#39; + url.split(&#39;/&#39;)[-2]
-dados = pd.read_csv(url2)
+<pre class="python"><code># url = &quot;https://drive.google.com/file/d/1L0a-I9AOpBCL_F8gJwhVM-lBVnWQgfpF/view?usp=sharing&quot;
+# url2 =&#39;https://drive.google.com/uc?id=&#39; + url.split(&#39;/&#39;)[-2]
+# dados = pd.read_csv(url2)
 
 ds_house = pd.read_csv(&quot;..\Data\data_house.csv&quot;)
 ds_house.drop(columns=[&quot;date&quot;], inplace=True)
